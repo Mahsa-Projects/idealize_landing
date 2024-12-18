@@ -1,0 +1,237 @@
+/* Global Reset */
+
+:root {
+  --primary-color: rgb(7, 37, 88);
+  --secondary-color: rgb(230, 213, 112);
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --bold-text-color: rgb(54, 78, 144);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: rgb(7, 37, 88);
+  color: white;
+  padding: 14.5px 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+  transition: color 0.3s ease;
+  font-size: 13.5px;
+}
+
+nav ul li a.active {
+  color: var(--secondary-color) !important;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+/* Sections */
+section {
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#home {
+  background-color: #f0f8ff;
+}
+
+/* Content and Screenshots */
+.content2 {
+  max-width: 100%;
+  font-size: 13.5px;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.content {
+  max-width: 50%;
+  line-height: 1.5;
+}
+
+.content h2, .content2 h2 {
+  font-size: 3em;
+  color: var(--bold-text-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.content2 p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.screenshots {
+  position: relative;
+  width: 50%;
+  min-width: 250px;
+  height: 400px;
+  float: left;
+}
+
+.screenshots img {
+  position: absolute;
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.screenshots img:nth-child(1) {
+  top: 20px;
+  left: 40px;
+  transform: rotate(-10deg);
+}
+
+.screenshots img:nth-child(2) {
+  top: 0;
+  left: 120px;
+  z-index: 2;
+}
+
+.screenshots img:nth-child(3) {
+  top: 20px;
+  left: 200px;
+  transform: rotate(10deg);
+}
+
+.screenshots img:hover {
+  transform: scale(1.08);
+}
+
+.home-content {
+  float: left;
+  min-width: 250px;
+  padding-right: 80px;
+}
+
+/* Media Queries for responsive on mobile */
+@media (max-width: 768px) {
+  .screenshots {
+    width: 100%;
+    text-align: center;
+  }
+
+  .screenshots img {
+    width: 150px;
+    height: 300px;
+  }
+
+  .home-content {
+    width: 100%;
+    text-align: center;
+    min-width: 100%;
+    margin-bottom: 20px;
+    padding-right: 0;
+  }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #FFF;
+  color: var(--bold-text-color);
+  padding: 35px 0;
+  font-size: 12.5px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  /* Adjust this value for your preferred maximum width */
+  margin: 0 auto;
+  /* Center the container */
+  padding: 0 15px;
+  /* Add padding to avoid touching edges */
+}
+
+/* Sections within Container */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Download Buttons */
+.download-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.download-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.download-buttons a img {
+  height: 40px;
+  vertical-align: middle;
+}
+
+.download-buttons a:hover {
+  /* Scale transition */
+  transform: scale(1.03);
+  transition: all 0.3s ease;
+}
