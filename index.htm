@@ -21,8 +21,19 @@
         <li><a href="terms-conditions.htm">Terms & Conditions</a></li>
         <li><a href="de/index.htm">| Deutsch</a></li>
       </ul>
+      <div id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </nav>
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      this.classList.toggle('active');
+      document.querySelector('nav ul').classList.toggle('active');
+    });
+  </script>
 
   <!-- Home Section -->
   <section id="home">
@@ -31,7 +42,8 @@
       <div class="content home-content">
         <h2>Idealize Mobile App</h2>
         <p>
-          "A Project Portfolio Platform to enhance interdisciplinary collaborations at Heilbronn University of Applied Sciences."
+          "A Project Portfolio Platform to enhance interdisciplinary collaborations at Heilbronn University of Applied
+          Sciences."
         </p>
         <img height="30" style="margin-top: 30px;"
           src="https://www.hs-heilbronn.de/assets/logo_color_de.1d2df2ddaca26921d4f3.png" />
@@ -45,15 +57,15 @@
             <img src="resources/google-play-btn.png" alt="Google Play Store" />
           </a>
         </div>
-      
 
-    </div>
-    <!-- Screenshots -->
-    <div class="screenshots">
-      <img src="resources/img_01.png" alt="App Screenshot 1" />
-      <img src="resources/img_02.png" alt="App Screenshot 2" />
-      <img src="resources/img_03.png" alt="App Screenshot 3" />
-    </div>
+
+      </div>
+      <!-- Screenshots -->
+      <div class="screenshots">
+        <img src="resources/img_01.png" alt="App Screenshot 1" />
+        <img src="resources/img_02.png" alt="App Screenshot 2" />
+        <img src="resources/img_03.png" alt="App Screenshot 3" />
+      </div>
     </div>
   </section>
 
