@@ -230,6 +230,38 @@ section {
     height: 300px;
   }
 
+  .screenshots img:nth-child(1) {
+    top: 30px;
+    left: 50%;
+    margin-left: -150px;
+    transform: rotate(-10deg);
+  }
+  
+  .screenshots img:nth-child(2) {
+    top: 0;
+    left: 50%;
+    margin-left: -75px;
+    z-index: 2;
+  }
+  
+  .screenshots img:nth-child(3) {
+    top: 20px;
+    left: 50%;
+    margin-left: 0;
+    transform: rotate(10deg);
+  }
+
+  .download-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; margin-bottom: 20px;
+  }
+
+  .download-buttons img {
+    margin: 0px 0;
+  }
+
   .home-content {
     width: 100%;
     text-align: center;
