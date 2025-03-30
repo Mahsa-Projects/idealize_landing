@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works - Idealize</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .features li {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        padding-left: 60px;
+        flex-direction: row;
+        list-style: none;
+        margin-bottom: 50px;
+        /* Keep image and text side by side */
+    }
+
+    .features li>div {
+        display: flex;
+        flex-direction: column;
+        /* Stack h3 and p vertically */
+    }
+
+    .features img {
+        width: 150px;
+        margin-right: 20px;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .features h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+        color: #333;
+    }
+
+    .features p {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.5;
+        max-width: 600px;
+        text-align: left;
+    }
+
+    @media (max-width: 768px) {
+        .features li {
+            flex-direction: column;
+            align-items: center;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .features img {
+            width: 150px;
+            margin: 0 0 15px;
+        }
+
+        .features h3 {
+            font-size: 1.25rem;
+            margin: 0 0 10px;
+        }
+
+        .features p {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Idealize</h1>
+            <ul>
+                <li><a href="index.htm">Home</a></li>
+                <li><a href="hiw.htm" class="active">How It Works</a></li>
+                <li><a href="privacy-policy.htm">Privacy Policy</a></li>
+                <li><a href="terms-conditions.htm">Terms & Conditions</a></li>
+                <li><a href="de/hiw.htm">| Deutsch</a></li>
+            </ul>
+            <div id="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <!-- Content -->
+            <div class="content2">
+                <h2>How It Works</h2>
+                <br /><br />
+                <ul class="features">
+                    <li>
+                        <img src="resources/img_01.png" alt="Feature 1" />
+                        <div>
+                            <h3>Create Project</h3>
+                            <p>
+                                Leverage our AI-powered platform to generate project ideas tailored to your skills,
+                                interests, and preferences.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="resources/img_02.png" alt="Feature 2" />
+                        <div>
+                            <h3>Project Matchmaking</h3>
+                            <p>
+                                Find the perfect project partner by matching your skills and interests with those of
+                                other users through our AI-driven matchmaking system.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="resources/img_03.png" alt="Feature 3" />
+                        <div>
+                            <h3>Project Collaboration</h3>
+                            <p>
+                                Collaborate seamlessly with project partners using a shared workspace for notes, files,
+                                and communication, all integrated within the app.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="resources/img_04.png" alt="Feature 4" />
+                        <div>
+                            <h3>AI Chat Bot (Coming Soon)</h3>
+                            <p>
+                                An AI-powered chat bot to assist you throughout your project journey, providing instant
+                                support and guidance.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <br /><br />
+                <div class="download-buttons">
+                    <a href="#">
+                        <img src="resources/app-store-btn.png" alt="App Store" />
+                    </a>
+                    <a href="https://landing.campusconnects.de/resources/idealize_app.apk">
+                        <img src="resources/google-play-btn.png" alt="Google Play Store" />
+                    </a>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Idealize. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
