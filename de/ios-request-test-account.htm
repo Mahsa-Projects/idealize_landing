@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testkonto anfordern (iOS) - Idealize</title>
+    <link rel="stylesheet" href="../style.css?v=2">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<script>
+    function enableSubmitButton() {
+        document.getElementById("submit-button").disabled = false;
+    }
+
+    window.onload = function () {
+        document.getElementById("submit-button").disabled = true;
+    }
+</script>
+
+<style>
+    .features li {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        padding-left: 60px;
+        flex-direction: row;
+        list-style: none;
+        margin-bottom: 50px;
+        /* Keep image and text side by side */
+    }
+
+    .features li>div {
+        display: flex;
+        flex-direction: column;
+        /* Stack h3 and p vertically */
+    }
+
+    .features img {
+        width: 150px;
+        margin-right: 20px;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .features h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+        color: #333;
+    }
+
+    .features p {
+        font-size: 1.2rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.5;
+        max-width: 600px;
+        text-align: left;
+    }
+
+    @media (max-width: 768px) {
+        .features li {
+            flex-direction: column;
+            align-items: center;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .features img {
+            width: 150px;
+            margin: 0 0 15px;
+        }
+
+        .features h3 {
+            font-size: 1.25rem;
+            margin: 0 0 10px;
+        }
+
+        .features p {
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+    }
+
+    form {
+        max-width: 400px;
+        /* display: flex; */
+        /* flex-direction: column; */
+    }
+
+    form button {
+        display: block;
+        padding-left: 30px;
+        padding-right: 30px;
+        /* padding: 10px; */
+        height: 45px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 300;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+
+    form input[type="email"],
+    form input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 300;
+        height: 45px;
+    }
+
+    form input[type="email"]:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Idealize</h1>
+            <ul>
+                <li><a href="index.htm">Startseite</a></li>
+                <li><a href="hiw.htm">Wie funktioniert's</a></li>
+                <li><a href="privacy-policy.htm">Datenschutzerklärung</a></li>
+                <li><a href="terms-conditions.htm">Nutzungsbedingungen</a></li>
+                <li><a href="../ios-request-test-account.htm">| English</a></li>
+            </ul>
+            <div id="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+    <!-- Hauptbereich -->
+    <section id="home">
+        <div class="container">
+            <!-- Inhalt -->
+            <div class="content2">
+                <h2>Testkonto anfordern (iOS)</h2>
+                <p style="max-width: 600px; margin-bottom: 60px;">
+                    Sie können ein Testkonto anfordern, indem Sie unten Ihre E-Mail-Adresse eingeben. Sobald wir Ihre
+                    Anfrage erhalten haben, senden wir Ihnen eine E-Mail mit Anweisungen zur Einrichtung Ihres
+                    Testkontos.
+                </p>
+                <form name="request-form" id="request-form">
+                    <div style="display: flex; gap: 10px;">
+                        <input type="text" placeholder="Vorname" required name="first_name" id="first_name"
+                            style="flex: 1;" autocomplete="given-name" />
+                        <input type="text" placeholder="Nachname" required name="last_name" id="last_name"
+                            style="flex: 1;" autocomplete="family-name" />
+                    </div>
+
+                    <input type="email" placeholder="Geben Sie Ihre E-Mail-Adresse ein" required name="email" id="email"
+                        autofocus autocapitalize="off" autocorrect="off" spellcheck="false" autofill="false"
+                        autocapitalize="off" autocorrect="off" />
+
+                    <div class="g-recaptcha" data-sitekey="6Lc2PwYrAAAAAAaYllYAPg1hdB3H-K5ojNCM9VC6" data-action="LOGIN"
+                        data-callback="enableSubmitButton"></div>
+
+                    <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Absenden</button>
+                </form>
+
+            </div>
+    </section>
+    <script>
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        document.getElementById('request-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('first_name').value;
+            const lastName = document.getElementById('last_name').value;
+
+            if (!email || !firstName || !lastName) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            } else {
+                if (!validateEmail(email)) {
+                    alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+                    return;
+                }
+            }
+
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse) {
+                alert('Bitte vervollständigen Sie das reCAPTCHA');
+                return;
+            }
+
+            fetch('https://api.campusconnects.de/request-test-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                    recaptchaToken: recaptchaResponse
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Antwort:', data);
+                    if (data.success) {
+                        alert('Anfrage erfolgreich abgeschickt!');
+                        document.getElementById('request-form').reset();
+                        grecaptcha.reset();
+                        document.getElementById('submit-button').disabled = true;
+                    } else {
+                        alert('Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.');
+                        grecaptcha.reset();
+                    }
+                })
+                .catch(error => {
+                    console.error('Fehler:', error);
+                    alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+                });
+        });
+    </script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Idealize. Alle Rechte vorbehalten.</p>
+        <p style="padding-top: 15px;">
+            <a href="https://www.hs-heilbronn.de/de/impressum" target="_blank">Impressum</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a target="_blank" href="https://www.hs-heilbronn.de/de/idealize">Idealize</a>
+        </p>
+    </footer>
+</body>
+
+</html>
