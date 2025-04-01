@@ -237,29 +237,18 @@
                     recaptchaToken: recaptchaResponse
                 })
             })
-                .then(response => {
-                    if (!response.ok) {
-                        try {
-                            const errorMessage = response.json();
-                            alert(errorMessage.message);
-                        } catch (error) {
-                            console.error('Error:', error);
-                            alert('An error occurred. Please try again later.');
-                        }
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                    if (data.success) {
+                    if (!!data.error) {
+                        alert(data.message);
+                        grecaptcha.reset();
+                    } else {
                         alert('Request submitted successfully!');
                         // Optional: reset the form and reCAPTCHA
                         document.getElementById('request-form').reset();
                         grecaptcha.reset();
                         // Disable submit button again
                         document.getElementById('submit-button').disabled = true;
-                    } else {
-                        alert('Verification failed. Please try again.');
-                        grecaptcha.reset();
                     }
                 })
                 .catch(error => {
