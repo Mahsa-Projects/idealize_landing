@@ -237,9 +237,19 @@
                     recaptchaToken: recaptchaResponse
                 })
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        try {
+                            const errorMessage = response.json();
+                            alert(errorMessage.message);
+                        } catch (error) {
+                            console.error('Error:', error);
+                            alert('An error occurred. Please try again later.');
+                        }
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    console.log('Response xxxxx:', data);
                     if (data.success) {
                         alert('Request submitted successfully!');
                         // Optional: reset the form and reCAPTCHA
