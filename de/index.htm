@@ -10,6 +10,132 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
+<style>
+  /* Floating Action Button */
+  .fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+  }
+
+  .fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #4A6FFF 0%, #2A4AE4 100%);
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(42, 74, 228, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fab:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(42, 74, 228, 0.6);
+  }
+
+  .fab:active {
+    transform: translateY(0px);
+  }
+
+  .fab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+  }
+
+  .fab:hover::before {
+    left: 100%;
+  }
+
+  .fab i {
+    color: white;
+    font-size: 24px;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    position: absolute;
+    right: 85px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    border-width: 8px 0 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent #333;
+  }
+
+  .fab-container:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 90px;
+  }
+
+  /* Pulse animation */
+  .pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(74, 111, 255, 0.4);
+    opacity: 0;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+
+    70% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+
+  /* Survey icon */
+  .survey-icon {
+    width: 40px;
+    height: 40px;
+    fill: white;
+    margin-top: 14px;
+    margin-left: 14px;
+  }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <body>
   <!-- Navigation -->
   <nav>
@@ -89,6 +215,33 @@
         target="_blank" href="https://www.hs-heilbronn.de/de/idealize">Idealize</a>
     </p>
   </footer>
+
+  <!-- Floating Action Button for Survey -->
+  <div class="fab-container">
+    <div class="tooltip">Nehmen Sie unsere Online-Survey teil!</div>
+    <div class="fab" onclick="window.location.href='survey.htm'">
+      <div class="pulse"></div>
+      <svg class="survey-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V5H19V19ZM7 10H9V17H7V10ZM11 7H13V17H11V7ZM15 13H17V17H15V13Z" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    // You can add any additional JavaScript functionality here
+    document.addEventListener('DOMContentLoaded', function () {
+      const fab = document.querySelector('.fab');
+
+      // Add click event listener
+      fab.addEventListener('click', function () {
+        // You can add analytics tracking or other functionality here
+        console.log('Survey button clicked');
+        window.location.href = 'survey.htm';
+      });
+    });
+  </script>
+
 </body>
 
 </html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Umfrage - Idealize</title>
+    <link rel="stylesheet" href="../style.css?v=3">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<script>
+    function enableSubmitButton() {
+        document.getElementById("submit-button").disabled = false;
+    }
+
+    window.onload = function () {
+        document.getElementById("submit-button").disabled = true;
+    }
+</script>
+
+<style>
+    form input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: 300;
+    }
+
+    form input[type="email"]:focus {
+        outline: none;
+        border-color: var(--primary-color);
+    }
+
+    .note {
+        font-size: 0.8rem;
+        font-weight: 300;
+    }
+
+    form button {
+        display: block;
+        padding-left: 30px;
+        padding-right: 30px;
+        /* padding: 10px; */
+        height: 45px;
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 300;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Idealize</h1>
+            <ul>
+                <li><a href="index.htm">Startseite</a></li>
+                <li><a href="hiw.htm">Wie funktioniert's</a></li>
+                <li><a href="privacy-policy.htm">Datenschutzerklärung</a></li>
+                <li><a href="terms-conditions.htm">Nutzungsbedingungen</a></li>
+                <li><a href="../survey.htm">| English</a></li>
+            </ul>
+            <div id="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <!-- Content -->
+            <div class="content2">
+                <h2>Online Umfrage</h2>
+                <br /><br />
+                <p style="max-width: 600px; margin-bottom: 60px;">
+                    Bitte nehmen Sie die folgende Umfrage an, um uns zu helfen, unsere Dienstleistungen zu verbessern,
+                    die Sie ganz einfach und anonym sind.
+                </p>
+                <form name="request-form" id="request-form">
+                    <p>
+                        1. Was denken Sie allgemein über Idealize? <span class="note">(Maximal 1000 Zeichen)</span>
+                    </p>
+                    <textarea name="first_q" id="first_q" style="width: 100%;" rows="10"
+                        placeholder="Geben Sie hier Ihre Antwort ein..." maxlength="1000" minlength="20"></textarea>
+
+                    <p>
+                        2. Was ist Ihre Lieblingsfunktion oder das beste Merkmal von Idealize? <span
+                            class="note">(Maximal 1000 Zeichen)</span>
+                    </p>
+                    <textarea name="second_q" id="second_q" style="width: 100%;" rows="10"
+                        placeholder="Geben Sie hier Ihre Antwort ein..." maxlength="1000" minlength="20"></textarea>
+
+                    <p>
+                        3. Was ist Ihr Vorschlag für Idealize, den Sie gerne sehen würden? <span class="note">(Maximal
+                            1000 Zeichen)</span>
+                    </p>
+                    <textarea name="third_q" id="third_q" style="width: 100%;" rows="10"
+                        placeholder="Geben Sie hier Ihre Antwort ein..." maxlength="1000" minlength="20"></textarea>
+
+                    <p>
+
+                    <div class="g-recaptcha" data-sitekey="6LepSAYrAAAAAJJ1YTeKr20jDHVtgXeBFX32yawX" data-action="LOGIN"
+                        data-callback="enableSubmitButton"></div>
+
+                    <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Absenden</button>
+                </form>
+            </div>
+    </section>
+
+    <script>
+        document.getElementById('request-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const firstQ = document.getElementById('first_q').value;
+            const secondQ = document.getElementById('second_q').value;
+            const thirdQ = document.getElementById('third_q').value;
+
+
+            if (!firstQ || !secondQ || !thirdQ) {
+                alert('Bitte füllen Sie alle Felder aus.');
+                return;
+            }
+
+            // Get the reCAPTCHA response token
+            const recaptchaResponse = grecaptcha.getResponse();
+
+            // Check if we have a reCAPTCHA response
+            if (!recaptchaResponse) {
+                alert('Bitte beantworten Sie die reCAPTCHA');
+                return;
+            }
+
+            // Send data to your API
+            fetch('https://api.campusconnects.de/submit-survey', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstQ: firstQ,
+                    secondQ: secondQ,
+                    thirdQ: thirdQ,
+                    recaptchaToken: recaptchaResponse
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (!!data.error) {
+                        alert(data.message);
+                        grecaptcha.reset();
+                    } else {
+                        alert('Umfrage erfolgreich abgeschickt!');
+                        // Optional: reset the form and reCAPTCHA
+                        document.getElementById('request-form').reset();
+                        grecaptcha.reset();
+                        // Disable submit button again
+                        document.getElementById('submit-button').disabled = true;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+                });
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Idealize. All rights reserved.</p>
+        <p style="padding-top: 15px;">
+            <a href="https://www.hs-heilbronn.de/de/impressum" target="_blank">Imprint</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a
+                target="_blank" href="https://www.hs-heilbronn.de/de/idealize">Idealize</a>
+        </p>
+    </footer>
+</body>
+
+</html>
