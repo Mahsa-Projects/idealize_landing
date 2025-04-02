@@ -163,35 +163,60 @@
     </script>
 
     <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <!-- Content -->
-            <div class="content2">
-                <h2>Request Test Account (iOS)</h2>
-                <p style="max-width: 600px; margin-bottom: 60px;">
-                    You can request a test account by entering your email address below. As soon as we receive your
-                    request, we will send you an email with instructions on how to set up your test account.
-                </p>
-                <form name="request-form" id="request-form">
-                    <div style="display: flex; gap: 10px;">
-                        <input type="text" placeholder="First name" required name="first_name" id="first_name"
-                            style="flex: 1;" autocomplete="given-name" />
-                        <input type="text" placeholder="Last name" required name="last_name" id="last_name"
-                            style="flex: 1;" autocomplete="family-name" />
-                    </div>
+    <!-- Home Section -->
+<section id="home">
+    <div class="container">
+        <!-- Content -->
+        <div class="content2">
+            <h2>Request Test Account (iOS)</h2>
+            <p style="max-width: 600px; margin-bottom: 60px;">
+                To request access to our TestFlight, please provide your first name, last name, and your Apple ID email address below. Once we receive your information, we will add your Apple ID to TestFlight, usually within 48 hours.
 
-                    <input type="email" placeholder="Enter your email address" required name="email" id="email"
-                        autofocus autocapitalize="off" autocorrect="off" spellcheck="false" autofill="false"
-                        autocapitalize="off" autocorrect="off" />
+            </p>
+            <form name="request-form" id="request-form">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" placeholder="First name" required name="first_name" id="first_name" style="flex: 1;" autocomplete="given-name" />
+                    <input type="text" placeholder="Last name" required name="last_name" id="last_name" style="flex: 1;" autocomplete="family-name" />
+                </div>
 
-                    <div class="g-recaptcha" data-sitekey="6LepSAYrAAAAAJJ1YTeKr20jDHVtgXeBFX32yawX" data-action="LOGIN"
-                        data-callback="enableSubmitButton"></div>
+                <input type="email" placeholder="Enter your email address" required name="email" id="email" autofocus autocapitalize="off" autocorrect="off" spellcheck="false" autofill="false" />
 
-                    <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Submit</button>
-                </form>
+                <div class="g-recaptcha" data-sitekey="6LepSAYrAAAAAJJ1YTeKr20jDHVtgXeBFX32yawX" data-action="LOGIN" data-callback="enableSubmitButton"></div>
 
+                <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Submit</button>
+            </form>
+
+            <!-- How the Process Works -->
+            <div style="margin-top: 60px; max-width: 700px; ">
+                <h2>How the Process Works:</h2>
+                <ol>
+                    <li>
+                        <strong>Submit Your Information:</strong>
+                        <p>Enter your first name, last name, and your Apple ID (email address).</p>
+                    </li>
+                    <li>
+                        <strong>Verification and Addition:</strong>
+                        <p>Our team will verify your information. Your Apple ID will be added to TestFlight within approximately 48 hours.</p>
+                    </li>
+                    <li>
+                        <strong>Invitation to TestFlight:</strong>
+                        <p>After your Apple ID is added, you'll see our app available within your TestFlight app.</p>
+                    </li>
+                    <li>
+                        <strong>Install and Test:</strong>
+                        <p>Open the TestFlight app on your iOS device. Find our app in the available apps list and tap "Install" to begin testing.</p>
+                    </li>
+                    <li>
+                        <strong>Need Help?</strong>
+                        <p>If you experience any issues or delays, please email us at <a href="mailto:idealize@hs-heilbronn.de">idealize@hs-heilbronn.de</a>.</p>
+                    </li>
+                </ol>
             </div>
-    </section>
+
+        </div>
+    </div>
+</section>
+
     <script>
         function validateEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

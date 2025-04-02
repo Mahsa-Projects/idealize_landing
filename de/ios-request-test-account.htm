@@ -143,7 +143,7 @@
             <h1>Idealize</h1>
             <ul>
                 <li><a href="index.htm">Startseite</a></li>
-                <li><a href="hiw.htm">Wie funktioniert's</a></li>
+                <li><a href="hiw.htm">Wie funktioniert es</a></li>
                 <li><a href="privacy-policy.htm">Datenschutzerklärung</a></li>
                 <li><a href="terms-conditions.htm">Nutzungsbedingungen</a></li>
                 <li><a href="../ios-request-test-account.htm">| English</a></li>
@@ -163,36 +163,58 @@
     </script>
 
     <!-- Hauptbereich -->
-    <section id="home">
-        <div class="container">
-            <!-- Inhalt -->
-            <div class="content2">
-                <h2>Testkonto anfordern (iOS)</h2>
-                <p style="max-width: 600px; margin-bottom: 60px;">
-                    Sie können ein Testkonto anfordern, indem Sie unten Ihre E-Mail-Adresse eingeben. Sobald wir Ihre
-                    Anfrage erhalten haben, senden wir Ihnen eine E-Mail mit Anweisungen zur Einrichtung Ihres
-                    Testkontos.
-                </p>
-                <form name="request-form" id="request-form">
-                    <div style="display: flex; gap: 10px;">
-                        <input type="text" placeholder="Vorname" required name="first_name" id="first_name"
-                            style="flex: 1;" autocomplete="given-name" />
-                        <input type="text" placeholder="Nachname" required name="last_name" id="last_name"
-                            style="flex: 1;" autocomplete="family-name" />
-                    </div>
+   <!-- Hauptbereich -->
+<section id="home">
+    <div class="container">
+        <!-- Inhalt -->
+        <div class="content2">
+            <h2>Testkonto anfordern (iOS)</h2>
+            <p style="max-width: 600px; margin-bottom: 60px;">
+                Um Zugang zu unserem TestFlight anzufordern, geben Sie bitte unten Ihren Vor- und Nachnamen sowie Ihre Apple ID-E-Mail-Adresse an. Sobald wir Ihre Informationen erhalten haben, fügen wir Ihre Apple ID zu TestFlight hinzu, normalerweise innerhalb von 48 Stunden.
+            </p>
+            <form name="request-form" id="request-form">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" placeholder="Vorname" required name="first_name" id="first_name" style="flex: 1;" autocomplete="given-name" />
+                    <input type="text" placeholder="Nachname" required name="last_name" id="last_name" style="flex: 1;" autocomplete="family-name" />
+                </div>
 
-                    <input type="email" placeholder="Geben Sie Ihre E-Mail-Adresse ein" required name="email" id="email"
-                        autofocus autocapitalize="off" autocorrect="off" spellcheck="false" autofill="false"
-                        autocapitalize="off" autocorrect="off" />
+                <input type="email" placeholder="Geben Sie Ihre E-Mail-Adresse ein" required name="email" id="email" autofocus autocapitalize="off" autocorrect="off" spellcheck="false" autofill="false" />
 
-                    <div class="g-recaptcha" data-sitekey="6LepSAYrAAAAAJJ1YTeKr20jDHVtgXeBFX32yawX" data-action="LOGIN"
-                        data-callback="enableSubmitButton"></div>
+                <div class="g-recaptcha" data-sitekey="6LepSAYrAAAAAJJ1YTeKr20jDHVtgXeBFX32yawX" data-action="LOGIN" data-callback="enableSubmitButton"></div>
 
-                    <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Absenden</button>
-                </form>
+                <button style="margin-top: 10px;" type="submit" id="submit-button" disabled>Absenden</button>
+            </form>
 
+            <!-- Ablauf der Anfrage -->
+            <div style="margin-top: 60px; max-width: 700px;">
+                <h2>So funktioniert der Ablauf:</h2>
+                <ol>
+                    <li>
+                        <strong>Daten eingeben:</strong>
+                        <p>Geben Sie Ihren Vornamen, Nachnamen und Ihre Apple-ID (E-Mail-Adresse) ein.</p>
+                    </li>
+                    <li>
+                        <strong>Prüfung und Hinzufügen:</strong>
+                        <p>Unser Team überprüft Ihre Angaben und fügt Ihre Apple-ID innerhalb von ca. 48 Stunden zu TestFlight hinzu.</p>
+                    </li>
+                    <li>
+                        <strong>Zugang zu TestFlight:</strong>
+                        <p>Sobald Ihre Apple-ID hinzugefügt wurde, erscheint unsere App in Ihrer TestFlight-App.</p>
+                    </li>
+                    <li>
+                        <strong>Installieren und testen:</strong>
+                        <p>Öffnen Sie die TestFlight-App auf Ihrem iOS-Gerät, wählen Sie unsere App aus und tippen Sie auf „Installieren“, um mit dem Testen zu beginnen.</p>
+                    </li>
+                    <li>
+                        <strong>Hilfe benötigt?</strong>
+                        <p>Sollten Sie Probleme oder Verzögerungen haben, wenden Sie sich bitte per E-Mail an <a href="mailto:idealize@hs-heilbronn.de">idealize@hs-heilbronn.de</a>.</p>
+                    </li>
+                </ol>
             </div>
-    </section>
+        </div>
+    </div>
+</section>
+
     <script>
         function validateEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
