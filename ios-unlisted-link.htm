@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download iOS App - Idealize</title>
+    <link rel="stylesheet" href="style.css?v=4">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Idealize</h1>
+            <ul>
+                <li><a href="index.htm">Home</a></li>
+                <li><a href="hiw.htm">How It Works</a></li>
+                <li><a href="privacy-policy.htm">Privacy Policy</a></li>
+                <li><a href="terms-conditions.htm">Terms & Conditions</a></li>
+                <li><a href="de/ios-unlisted-link.htm">| Deutsch</a></li>
+            </ul>
+            <div id="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="content2">
+                <h2>Download Our App (iOS Only)</h2>
+                <p style="max-width: 600px; margin-bottom: 60px;">
+                    Our iOS app is available as an <strong>unlisted app</strong> on the App Store.
+                    <br><br>
+                    This means it cannot be found through search and is only accessible via a direct link.
+                    <br><br>
+                    <strong>Important:</strong> You must use an Apple ID that is registered in Germany to download the app.
+                </p>
+
+                <a href="https://apps.apple.com/us/app/hhn-idealize/id6744242531" 
+                    style="display: inline-block; padding: 10px 20px; background-color: #007AFF; color: white; border-radius: 8px; text-decoration: none;">
+                    Open in App Store
+                </a>
+
+                <div style="margin-top: 60px; max-width: 700px;">
+                    <h2>Need Help?</h2>
+                    <p>
+                        If you're having trouble accessing or downloading the app, feel free to contact us at
+                        <a href="mailto:idealize@hs-heilbronn.de">idealize@hs-heilbronn.de</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Idealize. All rights reserved.</p>
+        <p style="padding-top: 15px;">
+            <a href="https://www.hs-heilbronn.de/de/impressum" target="_blank">Imprint</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+            <a target="_blank" href="https://www.hs-heilbronn.de/de/idealize">Idealize</a>
+        </p>
+    </footer>
+</body>
+
+</html>
